@@ -33,16 +33,10 @@
     JENNode *luke = [[JENNode alloc] init];
     luke.name = @"Luke Skywalker";
     luke.children = [NSSet setWithObjects:leaf1, leaf2, leaf3, leaf4, nil];
-    leaf1.parent  = luke;
-    leaf2.parent  = luke;
-    leaf3.parent  = luke;
-    leaf4.parent  = luke;
     
     JENNode *root = [[JENNode alloc] init];
     root.name = @"Ben Skywalker";
     root.children = [NSSet setWithObjects:leaf5, luke, nil];
-    leaf5.parent  = root;
-    luke.parent   = root;
 
     self.treeView.rootNode                  = root;
     self.treeView.backgroundColor           = [UIColor colorWithRed:0.0f/255.0f

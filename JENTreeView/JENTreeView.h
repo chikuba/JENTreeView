@@ -23,8 +23,6 @@
 @property (nonatomic, strong) UIColor *nodeBackgroundColor;
 @property (nonatomic, strong) UIColor *decorationLineColor;
 
--(void)layoutGraph;
-
 // debugging options
 @property (nonatomic, assign) BOOL showSubviews;
 @property (nonatomic, assign) BOOL showSubviewFrames;

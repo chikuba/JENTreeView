@@ -12,7 +12,6 @@
 @required
 
 @property (nonatomic, strong) NSSet *children;
-@property (nonatomic, strong) id<JENTreeViewModelNode> parent;
 @property (nonatomic, strong) NSString *name;
 
 @end
