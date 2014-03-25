@@ -55,6 +55,7 @@ Then change the following properites as you like:
 #Example
 
 ![An example](Example/example.png "Example")
+![An example](Example/example_debug.png "Example")
 
 #ToDo's
 * Make it easier to create your own customized Node views that can have a dynamic size. 
