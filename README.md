@@ -55,3 +55,8 @@ Then change the following properites as you like:
 #Example
 
 ![An example](Example/example.png "Example")
+
+#ToDo's
+* Make it easier to create your own customized Node views that can have a dynamic size. 
+* Make it easier to create your own customized deocration views. 
+* Fix the Example so that it work for iPad etc. 
