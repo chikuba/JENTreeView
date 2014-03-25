@@ -10,7 +10,6 @@ Create a Node class that uses the JENTreeViewModelNode protocol:
     @interface Node : NSObject<JENTreeViewModelNode>
     
         @property (nonatomic, strong) NSSet *children; // nodes
-        @property (nonatomic, strong) Node *parent;
         @property (nonatomic, strong) NSString *name;
 
     @end  
@@ -26,8 +25,6 @@ Then build your tree of these objects like this:
     Node *root = [[Node alloc] init];
     root.name = @"Root label";
     root.children = [NSSet setWithObjects:leaf1, leaf2, nil];
-    leaf1.parent  = root;
-    leaf2.parent  = root;
 
 ##Tree View
 Create a treeView as you usally create a UIScrollView. 
