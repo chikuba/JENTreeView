@@ -33,8 +33,9 @@
 
 -(void)setName:(NSString *)name {
     if(name != _name) {
-        self.nameLabel.text = name;
         _name = name;
+        
+        self.nameLabel.text = name;
     }
 }
 

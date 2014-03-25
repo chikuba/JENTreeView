@@ -125,8 +125,8 @@
 
 - (void)drawRect:(CGRect)dirtyRect {
     UIBezierPath *path = self.ortogonalConnection ?
-    [self orthogonalConnectionsPath] :
-    [self directConnectionsPath];
+                            [self orthogonalConnectionsPath] :
+                            [self directConnectionsPath];
 
     [self.lineColor set];
     path.lineWidth = self.lineWidth;
