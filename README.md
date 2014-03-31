@@ -34,23 +34,38 @@ Create a treeView as you usally create a UIScrollView.
 Set the rootNode to the root of your Node tree:
 
     treeView.rootNode = root;
+    
+And set the dataSource:
+
+    treeView.dataSource = self;
+    
+This allows you to implement your own NodeView and DecorationView, by implementing the following two methods: 
+
+    -(UIView*)treeView:(JENTreeView*)treeView
+    nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
+
+    -(UIView<JENDecorationView>*)treeView:(JENTreeView*)treeView
+    decorationView:(id<JENTreeViewModelNode>)modelNode;
 
 Then change the following properites as you like: 
 
     BOOL invertedLayout; // If the root node should be to the left or to the right
-    BOOL alignChildren; // If the children should be aligned or not
-    BOOL ortogonalConnection; // There's either direct or ortogonal connections
-    
-    CGFloat parentChildSpacing; // The space between the parent and it's closest child
+    BOOL alignChildren; // If the children should be aligned or not, X-axis
+    CGFloat parentChildSpacing; // The space between the parent and it's closest child, Y-axis
     CGFloat siblingSpacing; // The space between the children
-    
-    UIColor *nodeBackgroundColor; // The view that is the "Node"
-    UIColor *decorationLineColor;
     
     BOOL showSubviews; // If you want a white tint on the subviews 
     BOOL showSubviewFrames; // If you want a black frame around the subviews
-    BOOL showDecorationViewFrames; // If you want a red tint on the decoration views (the view that holdes the connection-line)
-    BOOL showDecorationViews; // If you want a red border around the decoration views
+    
+##Updating data
+
+When you add something to your nodeTree, please call the following method afterwards:
+
+    [treeView reloadData];
+    
+And when you update something visual like the child-parent-spacing, call:
+
+    [treeView layoutGraph];
     
 #Example
 
