@@ -8,10 +8,9 @@ This is a simple treeview that creates and layout a treeview recursivly.
 Create a Node class that uses the JENTreeViewModelNode protocol: 
 
     @interface Node : NSObject<JENTreeViewModelNode>
-    
+        @required
         @property (nonatomic, strong) NSSet *children; // nodes
         @property (nonatomic, strong) NSString *name;
-
     @end  
 
 Then build your tree of these objects like this: 
@@ -58,6 +57,14 @@ This allows you to implement your own NodeView and DecorationView, by implementi
 
     -(UIView<JENDecorationView>*)treeView:(JENTreeView*)treeView
     decorationViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
+    
+The DecorationView should follow the following protocol: 
+
+    @protocol JENDecorationView
+        @required
+        @property (nonatomic, assign) BOOL invertedLayout;
+        @property (nonatomic, assign) CGFloat parentChildSpacing;
+    @end
     
 ##Updating data
 
