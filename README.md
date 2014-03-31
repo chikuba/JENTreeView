@@ -34,18 +34,6 @@ Create a treeView as you usally create a UIScrollView.
 Set the rootNode to the root of your Node tree:
 
     treeView.rootNode = root;
-    
-And set the dataSource:
-
-    treeView.dataSource = self;
-    
-This allows you to implement your own NodeView and DecorationView, by implementing the following two methods: 
-
-    -(UIView*)treeView:(JENTreeView*)treeView
-    nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
-
-    -(UIView<JENDecorationView>*)treeView:(JENTreeView*)treeView
-    decorationViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
 
 Then change the following properites as you like: 
 
@@ -56,6 +44,20 @@ Then change the following properites as you like:
     
     BOOL showSubviews; // If you want a white tint on the subviews 
     BOOL showSubviewFrames; // If you want a black frame around the subviews
+    
+##Customization
+
+If you want to create your own views, please set the dataSource:
+
+    treeView.dataSource = self;
+    
+This allows you to implement your own NodeView and DecorationView, by implementing the following two methods: 
+
+    -(UIView*)treeView:(JENTreeView*)treeView
+    nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
+
+    -(UIView<JENDecorationView>*)treeView:(JENTreeView*)treeView
+    decorationViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
     
 ##Updating data
 
