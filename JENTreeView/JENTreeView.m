@@ -135,7 +135,7 @@
     }
     
     UIView<JENDecorationView> *decorationView = [self.dataSource treeView:self
-                                                           decorationView:modelNode];
+                                               decorationViewForModelNode:modelNode];
     
     if(decorationView == nil) {
         decorationView = [[JENDefaultDecorationView alloc] init];

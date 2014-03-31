@@ -17,7 +17,7 @@
     nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
 
 -(UIView<JENDecorationView>*)treeView:(JENTreeView*)treeView
-    decorationView:(id<JENTreeViewModelNode>)modelNode;
+    decorationViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
 
 @end
 
