@@ -45,7 +45,7 @@ This allows you to implement your own NodeView and DecorationView, by implementi
     nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
 
     -(UIView<JENDecorationView>*)treeView:(JENTreeView*)treeView
-    decorationView:(id<JENTreeViewModelNode>)modelNode;
+    decorationViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
 
 Then change the following properites as you like: 
 
