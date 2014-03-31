@@ -37,6 +37,15 @@
     return self;
 }
 
+-(id)init {
+    self = [super init];
+    
+    if(self) {
+        [self initilize];
+    }
+    return self;
+}
+
 -(void)initilize {
     self.modelNodeToSubtreeViewMap  = [NSMapTable weakToStrongObjectsMapTable];
     self.parentChildSpacing         = 40.0;
