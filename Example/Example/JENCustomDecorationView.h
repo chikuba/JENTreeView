@@ -1,22 +1,19 @@
 //
-//  JENSubtreeDecorationView.h
+//  JENCustomDecorationView.h
+//  Example
 //
-//  Created by Jennifer Nordwall on 3/8/14.
+//  Created by Jennifer Nordwall on 3/31/14.
 //  Copyright (c) 2014 Jennifer Nordwall. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "JENDecorationView.h"
 
-@class JENTreeView;
-
-@interface JENSubtreeDecorationView : UIView
+@interface JENCustomDecorationView : UIView<JENDecorationView>
 
 @property (nonatomic, assign) BOOL invertedLayout;
 @property (nonatomic, assign) BOOL ortogonalConnection;
 @property (nonatomic, assign) CGFloat parentChildSpacing;
-
-@property (nonatomic, assign) NSInteger lineWidth;
-@property (nonatomic, strong) UIColor *lineColor;
 
 // debugging purposes
 @property (nonatomic, assign) BOOL showView;

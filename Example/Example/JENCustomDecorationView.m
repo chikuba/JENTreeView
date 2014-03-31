@@ -1,27 +1,24 @@
 //
-//  JENSubtreeDecorationView.m
+//  JENCustomDecorationView.m
+//  Example
 //
-//  Created by Jennifer Nordwall on 3/8/14.
+//  Created by Jennifer Nordwall on 3/31/14.
 //  Copyright (c) 2014 Jennifer Nordwall. All rights reserved.
 //
 
-#import "JENSubtreeDecorationView.h"
+#import "JENCustomDecorationView.h"
 #import "JENSubtreeView.h"
-#import "JENTreeView.h"
 
-@implementation JENSubtreeDecorationView
+@implementation JENCustomDecorationView
 
 -(id)init {
     self = [super init];
     
     if(self) {
-        self.lineWidth              = 1.0;
-        self.lineColor              = [UIColor blackColor];
-        self.ortogonalConnection    = true;
-        self.backgroundColor        = [[UIColor alloc] initWithRed:1.0
-                                                             green:0.0
-                                                              blue:0.0
-                                                             alpha:0.0f];
+        self.backgroundColor = [[UIColor alloc] initWithRed:1.0
+                                                      green:0.0
+                                                       blue:0.0
+                                                      alpha:0.0f];
     }
     
     return self;
@@ -100,7 +97,9 @@
                 ++subtreeViewCount;
                 
                 CGRect subviewBounds    = [subview bounds];
-                CGPoint targetPoint     = [self convertPoint:CGPointMake(CGRectGetMidX(subviewBounds),
+                CGPoint targetPoint     = [self convertPoint:CGPointMake(self.invertedLayout ?
+                                                                         subviewBounds.size.width :
+                                                                         subviewBounds.origin.x,
                                                                          CGRectGetMidY(subviewBounds))
                                                     fromView:subview];
                 
@@ -116,8 +115,8 @@
     if (subtreeViewCount) {
         [path moveToPoint:rootPoint];
         [path addLineToPoint:rootIntersection];
-        [path moveToPoint:CGPointMake(rootIntersection.x, minY - (0.5 * self.lineWidth))];
-        [path addLineToPoint:CGPointMake(rootIntersection.x, maxY + (0.5 * self.lineWidth))];
+        [path moveToPoint:CGPointMake(rootIntersection.x, minY - 0.5)];
+        [path addLineToPoint:CGPointMake(rootIntersection.x, maxY + 0.5)];
     }
     
     return path;
@@ -125,11 +124,11 @@
 
 - (void)drawRect:(CGRect)dirtyRect {
     UIBezierPath *path = self.ortogonalConnection ?
-                            [self orthogonalConnectionsPath] :
-                            [self directConnectionsPath];
-
-    [self.lineColor set];
-    path.lineWidth = self.lineWidth;
+    [self orthogonalConnectionsPath] :
+    [self directConnectionsPath];
+    
+    [[UIColor blackColor] set];
+    path.lineWidth = 1.0;
     [path stroke];
 }
 

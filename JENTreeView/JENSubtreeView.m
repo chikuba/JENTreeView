@@ -1,4 +1,4 @@
-//
+ //
 //  JENSubtreeView.m
 //
 //  Created by Jennifer Nordwall on 3/8/14.
@@ -7,35 +7,29 @@
 
 #import "JENSubtreeView.h"
 #import "JENTreeViewModelNode.h"
-#import "JENSubtreeDecorationView.h"
-#import "JENNodeView.h"
+#import "JENDefaultDecorationView.h"
+#import "JENDefaultNodeView.h"
+
 
 @interface JENSubtreeView ()
 
-@property (nonatomic, strong) JENNodeView *nodeView;
-@property (nonatomic, strong) id<JENTreeViewModelNode> modelNode;
-@property (nonatomic, strong) JENSubtreeDecorationView *decorationsView;
+@property (nonatomic, strong) UIView *nodeView;
+@property (nonatomic, strong) UIView<JENDecorationView> *decorationsView;
 
 @end
 
 @implementation JENSubtreeView
 
--(id)initWithModelNode:(id<JENTreeViewModelNode>)modelNode {
-    NSParameterAssert(modelNode);
-    
+-(id)initWithNodeView:(UIView*)nodeView decorationView:(UIView<JENDecorationView>*)decorationView {
     self = [super initWithFrame:CGRectMake(10, 10, 100, 25)];
     
     if(self) {
-        self.modelNode              = modelNode;
         self.autoresizesSubviews    = FALSE;
         self.parentChildSpacing     = 40.0;
         self.siblingSpacing         = 10.0;
         
-        self.nodeView               = [[JENNodeView alloc]
-                                       initWithFrame:CGRectMake(0, 0, 160, 30)];
-        self.nodeView.name          = modelNode.name;
-        
-        self.decorationsView        = [[JENSubtreeDecorationView alloc] init];
+        self.nodeView               = nodeView;
+        self.decorationsView        = decorationView;
 
         [self addSubview:self.nodeView];
         [self addSubview:self.decorationsView];
@@ -64,48 +58,6 @@
         for(UIView *subview in self.subviews) {
             if([subview isKindOfClass:[JENSubtreeView class]]) {
                 ((JENSubtreeView*)subview).alignChildren = alignChildren;
-            }
-        }
-    }
-}
-
--(void)setOrtogonalConnection:(BOOL)ortogonalConnection {
-    if(_ortogonalConnection != ortogonalConnection) {
-        _ortogonalConnection = ortogonalConnection;
-        
-        self.decorationsView.ortogonalConnection = ortogonalConnection;
-        
-        for(UIView *subview in self.subviews) {
-            if([subview isKindOfClass:[JENSubtreeView class]]) {
-                ((JENSubtreeView*)subview).ortogonalConnection = ortogonalConnection;
-            }
-        }
-    }
-}
-
--(void)setDecorationLineColor:(UIColor *)decorationLineColor {
-    if(_decorationLineColor != decorationLineColor) {
-        _decorationLineColor = decorationLineColor;
-        
-        self.decorationsView.lineColor = decorationLineColor;
-        
-        for(UIView *subview in self.subviews) {
-            if([subview isKindOfClass:[JENSubtreeView class]]) {
-                ((JENSubtreeView*)subview).decorationLineColor = decorationLineColor;
-            }
-        }
-    }
-}
-
--(void)setNodeBackgroundColor:(UIColor *)nodeBackgroundColor {
-    if(_nodeBackgroundColor != nodeBackgroundColor) {
-        _nodeBackgroundColor = nodeBackgroundColor;
-        
-        self.nodeView.backgroundColor = nodeBackgroundColor;
-        
-        for(UIView *subview in self.subviews) {
-            if([subview isKindOfClass:[JENSubtreeView class]]) {
-                ((JENSubtreeView*)subview).nodeBackgroundColor = nodeBackgroundColor;
             }
         }
     }
@@ -141,34 +93,6 @@
         for(UIView *subview in self.subviews) {
             if([subview isKindOfClass:[JENSubtreeView class]]) {
                 ((JENSubtreeView*)subview).showViewFrame = showViewFrame;
-            }
-        }
-    }
-}
-
--(void)setShowDecorationView:(BOOL)showDecorationView {
-    if(_showDecorationView != showDecorationView) {
-        _showDecorationView = showDecorationView;
-        
-        self.decorationsView.showView = showDecorationView;
-        
-        for(UIView *subview in self.subviews) {
-            if([subview isKindOfClass:[JENSubtreeView class]]) {
-                ((JENSubtreeView*)subview).showDecorationView = showDecorationView;
-            }
-        }
-    }
-}
-
--(void)setShowDecorationViewFrame:(BOOL)showDecorationViewFrame {
-    if(_showDecorationViewFrame != showDecorationViewFrame) {
-        _showDecorationViewFrame = showDecorationViewFrame;
-        
-        self.decorationsView.showViewFrame = showDecorationViewFrame;
-        
-        for(UIView *subview in self.subviews) {
-            if([subview isKindOfClass:[JENSubtreeView class]]) {
-                ((JENSubtreeView*)subview).showDecorationViewFrame = showDecorationViewFrame;
             }
         }
     }
@@ -262,7 +186,6 @@
         self.decorationsView.hidden                 = false;
         self.decorationsView.parentChildSpacing     = self.parentChildSpacing;
         self.decorationsView.invertedLayout         = self.invertedLayout;
-        self.decorationsView.ortogonalConnection    = self.ortogonalConnection;
         
         [self.decorationsView setNeedsDisplay];
         

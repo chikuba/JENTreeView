@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JENNodeView : UIView
+@interface JENDefaultNodeView : UIView
 
 @property (nonatomic, strong) NSString *name;
 

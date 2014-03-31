@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD552A1718E9C7940061B53A /* JENCustomNodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD552A1618E9C7940061B53A /* JENCustomNodeView.m */; };
+		BD552A1A18E9D58A0061B53A /* JENCustomDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD552A1918E9D58A0061B53A /* JENCustomDecorationView.m */; };
 		BD8BC57718DF58F400399E38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC57618DF58F400399E38 /* Foundation.framework */; };
 		BD8BC57918DF58F400399E38 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC57818DF58F400399E38 /* CoreGraphics.framework */; };
 		BD8BC57B18DF58F400399E38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC57A18DF58F400399E38 /* UIKit.framework */; };
@@ -20,8 +22,8 @@
 		BD8BC59918DF58F500399E38 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC59818DF58F500399E38 /* XCTest.framework */; };
 		BD8BC59A18DF58F500399E38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC57618DF58F400399E38 /* Foundation.framework */; };
 		BD8BC59B18DF58F500399E38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC57A18DF58F400399E38 /* UIKit.framework */; };
-		BD8BC5B818DF595A00399E38 /* JENNodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B018DF595A00399E38 /* JENNodeView.m */; };
-		BD8BC5B918DF595A00399E38 /* JENSubtreeDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B218DF595A00399E38 /* JENSubtreeDecorationView.m */; };
+		BD8BC5B818DF595A00399E38 /* JENDefaultNodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B018DF595A00399E38 /* JENDefaultNodeView.m */; };
+		BD8BC5B918DF595A00399E38 /* JENDefaultDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B218DF595A00399E38 /* JENDefaultDecorationView.m */; };
 		BD8BC5BA18DF595A00399E38 /* JENSubtreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B418DF595A00399E38 /* JENSubtreeView.m */; };
 		BD8BC5BB18DF595A00399E38 /* JENTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B618DF595A00399E38 /* JENTreeView.m */; };
 		BD8BC5BE18DF5C3D00399E38 /* JENNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5BD18DF5C3D00399E38 /* JENNode.m */; };
@@ -38,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD552A1518E9C7940061B53A /* JENCustomNodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENCustomNodeView.h; sourceTree = "<group>"; };
+		BD552A1618E9C7940061B53A /* JENCustomNodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENCustomNodeView.m; sourceTree = "<group>"; };
+		BD552A1818E9D58A0061B53A /* JENCustomDecorationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENCustomDecorationView.h; sourceTree = "<group>"; };
+		BD552A1918E9D58A0061B53A /* JENCustomDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENCustomDecorationView.m; sourceTree = "<group>"; };
+		BD552A1B18E9DA8A0061B53A /* JENDecorationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JENDecorationView.h; sourceTree = "<group>"; };
 		BD8BC57318DF58F400399E38 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8BC57618DF58F400399E38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BD8BC57818DF58F400399E38 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,10 +62,10 @@
 		BD8BC59118DF58F400399E38 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BD8BC59718DF58F500399E38 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8BC59818DF58F500399E38 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		BD8BC5AF18DF595A00399E38 /* JENNodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENNodeView.h; sourceTree = "<group>"; };
-		BD8BC5B018DF595A00399E38 /* JENNodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENNodeView.m; sourceTree = "<group>"; };
-		BD8BC5B118DF595A00399E38 /* JENSubtreeDecorationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENSubtreeDecorationView.h; sourceTree = "<group>"; };
-		BD8BC5B218DF595A00399E38 /* JENSubtreeDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENSubtreeDecorationView.m; sourceTree = "<group>"; };
+		BD8BC5AF18DF595A00399E38 /* JENDefaultNodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENDefaultNodeView.h; sourceTree = "<group>"; };
+		BD8BC5B018DF595A00399E38 /* JENDefaultNodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENDefaultNodeView.m; sourceTree = "<group>"; };
+		BD8BC5B118DF595A00399E38 /* JENDefaultDecorationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENDefaultDecorationView.h; sourceTree = "<group>"; };
+		BD8BC5B218DF595A00399E38 /* JENDefaultDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENDefaultDecorationView.m; sourceTree = "<group>"; };
 		BD8BC5B318DF595A00399E38 /* JENSubtreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENSubtreeView.h; sourceTree = "<group>"; };
 		BD8BC5B418DF595A00399E38 /* JENSubtreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENSubtreeView.m; sourceTree = "<group>"; };
 		BD8BC5B518DF595A00399E38 /* JENTreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENTreeView.h; sourceTree = "<group>"; };
@@ -92,6 +99,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD552A1C18E9F68F0061B53A /* Default Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD8BC5AF18DF595A00399E38 /* JENDefaultNodeView.h */,
+				BD8BC5B018DF595A00399E38 /* JENDefaultNodeView.m */,
+				BD8BC5B118DF595A00399E38 /* JENDefaultDecorationView.h */,
+				BD8BC5B218DF595A00399E38 /* JENDefaultDecorationView.m */,
+			);
+			name = "Default Views";
+			sourceTree = "<group>";
+		};
 		BD8BC56A18DF58F400399E38 = {
 			isa = PBXGroup;
 			children = (
@@ -127,13 +145,17 @@
 			children = (
 				BD8BC58518DF58F400399E38 /* JENAppDelegate.h */,
 				BD8BC58618DF58F400399E38 /* JENAppDelegate.m */,
-				BD8BC58818DF58F400399E38 /* Main_iPhone.storyboard */,
-				BD8BC58B18DF58F400399E38 /* Main_iPad.storyboard */,
 				BD8BC58E18DF58F400399E38 /* JENViewController.h */,
 				BD8BC58F18DF58F400399E38 /* JENViewController.m */,
-				BD8BC59118DF58F400399E38 /* Images.xcassets */,
 				BD8BC5BC18DF5C3D00399E38 /* JENNode.h */,
 				BD8BC5BD18DF5C3D00399E38 /* JENNode.m */,
+				BD552A1518E9C7940061B53A /* JENCustomNodeView.h */,
+				BD552A1618E9C7940061B53A /* JENCustomNodeView.m */,
+				BD552A1818E9D58A0061B53A /* JENCustomDecorationView.h */,
+				BD552A1918E9D58A0061B53A /* JENCustomDecorationView.m */,
+				BD8BC58818DF58F400399E38 /* Main_iPhone.storyboard */,
+				BD8BC58B18DF58F400399E38 /* Main_iPad.storyboard */,
+				BD8BC59118DF58F400399E38 /* Images.xcassets */,
 				BD8BC57D18DF58F400399E38 /* Supporting Files */,
 			);
 			name = Classes;
@@ -154,15 +176,13 @@
 		BD8BC5AE18DF595A00399E38 /* JENTreeView */ = {
 			isa = PBXGroup;
 			children = (
-				BD8BC5AF18DF595A00399E38 /* JENNodeView.h */,
-				BD8BC5B018DF595A00399E38 /* JENNodeView.m */,
-				BD8BC5B118DF595A00399E38 /* JENSubtreeDecorationView.h */,
-				BD8BC5B218DF595A00399E38 /* JENSubtreeDecorationView.m */,
+				BD552A1C18E9F68F0061B53A /* Default Views */,
 				BD8BC5B318DF595A00399E38 /* JENSubtreeView.h */,
 				BD8BC5B418DF595A00399E38 /* JENSubtreeView.m */,
 				BD8BC5B518DF595A00399E38 /* JENTreeView.h */,
 				BD8BC5B618DF595A00399E38 /* JENTreeView.m */,
 				BD8BC5B718DF595A00399E38 /* JENTreeViewModelNode.h */,
+				BD552A1B18E9DA8A0061B53A /* JENDecorationView.h */,
 			);
 			name = JENTreeView;
 			path = ../JENTreeView;
@@ -268,12 +288,14 @@
 			files = (
 				BD8BC58718DF58F400399E38 /* JENAppDelegate.m in Sources */,
 				BD8BC5BA18DF595A00399E38 /* JENSubtreeView.m in Sources */,
-				BD8BC5B918DF595A00399E38 /* JENSubtreeDecorationView.m in Sources */,
+				BD8BC5B918DF595A00399E38 /* JENDefaultDecorationView.m in Sources */,
 				BD8BC59018DF58F400399E38 /* JENViewController.m in Sources */,
 				BD8BC5BB18DF595A00399E38 /* JENTreeView.m in Sources */,
-				BD8BC5B818DF595A00399E38 /* JENNodeView.m in Sources */,
+				BD8BC5B818DF595A00399E38 /* JENDefaultNodeView.m in Sources */,
 				BD8BC58318DF58F400399E38 /* main.m in Sources */,
+				BD552A1A18E9D58A0061B53A /* JENCustomDecorationView.m in Sources */,
 				BD8BC5BE18DF5C3D00399E38 /* JENNode.m in Sources */,
+				BD552A1718E9C7940061B53A /* JENCustomNodeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +505,7 @@
 				BD8BC5AA18DF58F500399E38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BD8BC5AB18DF58F500399E38 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +514,7 @@
 				BD8BC5AD18DF58F500399E38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

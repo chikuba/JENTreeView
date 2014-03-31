@@ -6,9 +6,10 @@
 //
 
 #import "JENTreeView.h"
-
 #import "JENSubtreeView.h"
 #import "JENTreeViewModelNode.h"
+#import "JENDefaultDecorationView.h"
+#import "JENDefaultNodeView.h"
 
 @interface JENTreeView ()
 
@@ -18,8 +19,8 @@
 
 @implementation JENTreeView
 
--(id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
+-(id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
     
     if(self) {
         [self initilize];
@@ -40,11 +41,9 @@
     self.modelNodeToSubtreeViewMap  = [NSMapTable weakToStrongObjectsMapTable];
     self.parentChildSpacing         = 40.0;
     self.siblingSpacing             = 10.0;
-    self.nodeBackgroundColor        = [UIColor colorWithRed:0.0f/255.0f
-                                                      green:102.0f/255.0f
-                                                       blue:142.0f/255.0f
-                                                      alpha:1.0f];
 }
+
+
 
 #pragma mark Properties
 
@@ -53,7 +52,6 @@
         _invertedLayout = invertedLayout;
         
         [self rootSubtreeView].invertedLayout = invertedLayout;
-        [self layoutGraph];
     }
 }
 
@@ -62,16 +60,6 @@
         _alignChildren = alignChildren;
 
         [self rootSubtreeView].alignChildren = alignChildren;
-        [self layoutGraph];
-    }
-}
-
--(void)setOrtogonalConnection:(BOOL)ortogonalConnection {
-    if(_ortogonalConnection != ortogonalConnection) {
-        _ortogonalConnection = ortogonalConnection;
-        
-        [self rootSubtreeView].ortogonalConnection = ortogonalConnection;
-        [self layoutGraph];
     }
 }
 
@@ -80,7 +68,6 @@
         _parentChildSpacing = parentChildSpacing;
         
         [self rootSubtreeView].parentChildSpacing = parentChildSpacing;
-        [self layoutGraph];
     }
 }
 
@@ -89,23 +76,6 @@
         _siblingSpacing = siblingSpacing;
         
         [self rootSubtreeView].siblingSpacing = siblingSpacing;
-        [self layoutGraph];
-    }
-}
-
--(void)setNodeBackgroundColor:(UIColor*)nodeBackgroundColor {
-    if(_nodeBackgroundColor != nodeBackgroundColor) {
-        _nodeBackgroundColor = nodeBackgroundColor;
-        
-        [self rootSubtreeView].nodeBackgroundColor = nodeBackgroundColor;
-    }
-}
-
--(void)setDecorationLineColor:(UIColor *)decorationLineColor {
-    if(_decorationLineColor != decorationLineColor) {
-        _decorationLineColor = decorationLineColor;
-        
-        [self rootSubtreeView].decorationLineColor = decorationLineColor;
     }
 }
 
@@ -120,40 +90,25 @@
 -(void)setShowSubviewFrames:(BOOL)showSubviewFrames {
     if(_showSubviewFrames != showSubviewFrames) {
         _showSubviewFrames = showSubviewFrames;
-        
+
         [self rootSubtreeView].showViewFrame = showSubviewFrames;
     }
 }
 
--(void)setShowDecorationViewFrames:(BOOL)showDecorationViewFrames {
-    if(_showDecorationViewFrames != showDecorationViewFrames) {
-        _showDecorationViewFrames = showDecorationViewFrames;
-        
-        [self rootSubtreeView].showDecorationViewFrame = showDecorationViewFrames;
-    }
-}
-
--(void)setShowDecorationViews:(BOOL)showDecorationViews {
-    if(_showDecorationViews != showDecorationViews) {
-        _showDecorationViews = showDecorationViews;
-        
-        [self rootSubtreeView].showDecorationView = showDecorationViews;
-    }
-}
-
 -(void)setRootNode:(id<JENTreeViewModelNode>)rootNode {
-    NSParameterAssert(rootNode == nil ||
-                      [rootNode conformsToProtocol:@protocol(JENTreeViewModelNode)]);
-    
     if(_rootNode != rootNode) {
-        [[self rootSubtreeView] removeFromSuperview];
-        [self.modelNodeToSubtreeViewMap removeAllObjects];
-        
         _rootNode = rootNode;
         
-        [self buildGraph];
-        [self layoutGraph];
+        [self reloadData];
     }
+}
+
+-(void)reloadData {
+    [[self rootSubtreeView] removeFromSuperview];
+    [self.modelNodeToSubtreeViewMap removeAllObjects];
+ 
+    [self buildGraph];
+    [self layoutGraph];
 }
 
 #pragma mark Build Graph
@@ -171,14 +126,29 @@
 -(JENSubtreeView*)buildGraphForModelNode:(id<JENTreeViewModelNode>)modelNode {
     NSParameterAssert(modelNode);
     
-    JENSubtreeView *subtreeView     = [[JENSubtreeView alloc] initWithModelNode:modelNode];
+    UIView* nodeView = [self.dataSource treeView:self
+                            nodeViewForModelNode:modelNode];
+    
+    if(nodeView == nil) {
+        nodeView                                = [[JENDefaultNodeView alloc] init];
+        ((JENDefaultNodeView*)nodeView).name    = modelNode.name;
+    }
+    
+    UIView<JENDecorationView> *decorationView = [self.dataSource treeView:self
+                                                           decorationView:modelNode];
+    
+    if(decorationView == nil) {
+        decorationView = [[JENDefaultDecorationView alloc] init];
+    }
+    
+    JENSubtreeView *subtreeView     = [[JENSubtreeView alloc]
+                                       initWithNodeView:nodeView
+                                       decorationView:decorationView];
+    
     subtreeView.alignChildren       = self.alignChildren;
     subtreeView.invertedLayout      = self.invertedLayout;
     subtreeView.parentChildSpacing  = self.parentChildSpacing;
     subtreeView.siblingSpacing      = self.siblingSpacing;
-    subtreeView.ortogonalConnection = self.ortogonalConnection;
-    subtreeView.nodeBackgroundColor = self.nodeBackgroundColor;
-    subtreeView.decorationLineColor = self.decorationLineColor;
     
     if(subtreeView) {
         [self setSubtreeView:subtreeView forModelNode:modelNode];

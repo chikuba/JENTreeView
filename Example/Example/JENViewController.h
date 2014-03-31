@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JENTreeView.h"
 
-@class JENTreeView;
-
-@interface JENViewController : UIViewController
+@interface JENViewController : UIViewController<JENTreeViewDataSource>
 
 @property (nonatomic, retain) IBOutlet JENTreeView *treeView;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *invertedLayout;

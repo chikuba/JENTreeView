@@ -7,26 +7,36 @@
 
 #import <UIKit/UIKit.h>
 #import "JENTreeViewModelNode.h"
+#import "JENDecorationView.h"
+
+@class JENTreeView;
+
+@protocol JENTreeViewDataSource
+
+-(UIView*)treeView:(JENTreeView*)treeView
+    nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
+
+-(UIView<JENDecorationView>*)treeView:(JENTreeView*)treeView
+    decorationView:(id<JENTreeViewModelNode>)modelNode;
+
+@end
 
 @interface JENTreeView : UIScrollView
 
 @property (nonatomic, retain) id<JENTreeViewModelNode> rootNode;
+@property (nonatomic, assign) id<JENTreeViewDataSource> dataSource;
+
+-(void)layoutGraph;
+-(void)reloadData;
 
 // subview properties 
 @property (nonatomic, assign) BOOL invertedLayout;
 @property (nonatomic, assign) BOOL alignChildren;
-@property (nonatomic, assign) BOOL ortogonalConnection;
-
 @property (nonatomic, assign) CGFloat parentChildSpacing;
 @property (nonatomic, assign) CGFloat siblingSpacing;
-
-@property (nonatomic, strong) UIColor *nodeBackgroundColor;
-@property (nonatomic, strong) UIColor *decorationLineColor;
 
 // debugging options
 @property (nonatomic, assign) BOOL showSubviews;
 @property (nonatomic, assign) BOOL showSubviewFrames;
-@property (nonatomic, assign) BOOL showDecorationViewFrames;
-@property (nonatomic, assign) BOOL showDecorationViews;
 
 @end
