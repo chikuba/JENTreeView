@@ -7,7 +7,6 @@
 
 #import "JENSubtreeView.h"
 #import "JENTreeViewModelNode.h"
-#import "JENDefaultDecorationView.h"
 #import "JENDefaultNodeView.h"
 
 
@@ -166,28 +165,30 @@
         self.nodeView.frame  = nodeViewFrame;
         
         // *** DECORATION VIEW *** //
-        CGFloat decorationViewWidth = self.parentChildSpacing;
-        CGFloat decorationViewX     = nodeViewSize.width;
-        
-        if(self.invertedLayout) {
-            decorationViewX = self.alignChildren ? minWidth : maxWidth;
-        }
-        
-        if(self.alignChildren) {
-            decorationViewWidth = self.frame.size.width - nodeViewSize.width - minWidth;
-        }
-        
-        CGRect decorationsViewFrame = CGRectMake(decorationViewX,
-                                                 0.0,
-                                                 decorationViewWidth,
-                                                 selfTargetSize.height);
-        self.decorationsView.frame  = decorationsViewFrame;
-        
-        self.decorationsView.hidden                 = false;
-        self.decorationsView.parentChildSpacing     = self.parentChildSpacing;
-        self.decorationsView.invertedLayout         = self.invertedLayout;
-        
-        [self.decorationsView setNeedsDisplay];
+		if(self.decorationsView) {
+			CGFloat decorationViewWidth = self.parentChildSpacing;
+			CGFloat decorationViewX     = nodeViewSize.width;
+			
+			if(self.invertedLayout) {
+				decorationViewX = self.alignChildren ? minWidth : maxWidth;
+			}
+			
+			if(self.alignChildren) {
+				decorationViewWidth = self.frame.size.width - nodeViewSize.width - minWidth;
+			}
+			
+			CGRect decorationsViewFrame = CGRectMake(decorationViewX,
+													 0.0,
+													 decorationViewWidth,
+													 selfTargetSize.height);
+			self.decorationsView.frame  = decorationsViewFrame;
+			
+			self.decorationsView.hidden                 = false;
+			self.decorationsView.parentChildSpacing     = self.parentChildSpacing;
+			self.decorationsView.invertedLayout         = self.invertedLayout;
+			
+			[self.decorationsView setNeedsDisplay];
+		}
         
     } else { // leaf node
         // *** NODE VIEW *** //

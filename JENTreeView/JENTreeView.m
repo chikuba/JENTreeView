@@ -8,7 +8,6 @@
 #import "JENTreeView.h"
 #import "JENSubtreeView.h"
 #import "JENTreeViewModelNode.h"
-#import "JENDefaultDecorationView.h"
 #import "JENDefaultNodeView.h"
 
 @interface JENTreeView ()
@@ -51,8 +50,6 @@
     self.parentChildSpacing         = 40.0;
     self.siblingSpacing             = 10.0;
 }
-
-
 
 #pragma mark Properties
 
@@ -112,15 +109,15 @@
     }
 }
 
+#pragma mark Build Graph
+
 -(void)reloadData {
     [[self rootSubtreeView] removeFromSuperview];
     [self.modelNodeToSubtreeViewMap removeAllObjects];
- 
+	
     [self buildGraph];
     [self layoutGraph];
 }
-
-#pragma mark Build Graph
 
 -(void)buildGraph {
     if(self.rootNode) {
@@ -135,20 +132,24 @@
 -(JENSubtreeView*)buildGraphForModelNode:(id<JENTreeViewModelNode>)modelNode {
     NSParameterAssert(modelNode);
     
-    UIView* nodeView = [self.dataSource treeView:self
-                            nodeViewForModelNode:modelNode];
+	UIView* nodeView = nil;
+	
+	if([self.dataSource respondsToSelector:@selector(treeView:nodeViewForModelNode:)]) {
+		nodeView = [self.dataSource treeView:self
+						nodeViewForModelNode:modelNode];
+	}
     
     if(nodeView == nil) {
         nodeView                                = [[JENDefaultNodeView alloc] init];
         ((JENDefaultNodeView*)nodeView).name    = modelNode.name;
     }
-    
-    UIView<JENDecorationView> *decorationView = [self.dataSource treeView:self
-                                               decorationViewForModelNode:modelNode];
-    
-    if(decorationView == nil) {
-        decorationView = [[JENDefaultDecorationView alloc] init];
-    }
+	
+	UIView<JENDecorationView> *decorationView = nil;
+	
+	if([self.dataSource respondsToSelector:@selector(treeView:decorationViewForModelNode:)]) {
+		decorationView = [self.dataSource treeView:self
+						decorationViewForModelNode:modelNode];
+	}
     
     JENSubtreeView *subtreeView     = [[JENSubtreeView alloc]
                                        initWithNodeView:nodeView
@@ -158,6 +159,8 @@
     subtreeView.invertedLayout      = self.invertedLayout;
     subtreeView.parentChildSpacing  = self.parentChildSpacing;
     subtreeView.siblingSpacing      = self.siblingSpacing;
+    subtreeView.showView            = self.showSubviews;
+    subtreeView.showViewFrame       = self.showSubviewFrames;
     
     if(subtreeView) {
         [self setSubtreeView:subtreeView forModelNode:modelNode];

@@ -23,7 +23,6 @@
 		BD8BC59A18DF58F500399E38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC57618DF58F400399E38 /* Foundation.framework */; };
 		BD8BC59B18DF58F500399E38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC57A18DF58F400399E38 /* UIKit.framework */; };
 		BD8BC5B818DF595A00399E38 /* JENDefaultNodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B018DF595A00399E38 /* JENDefaultNodeView.m */; };
-		BD8BC5B918DF595A00399E38 /* JENDefaultDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B218DF595A00399E38 /* JENDefaultDecorationView.m */; };
 		BD8BC5BA18DF595A00399E38 /* JENSubtreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B418DF595A00399E38 /* JENSubtreeView.m */; };
 		BD8BC5BB18DF595A00399E38 /* JENTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B618DF595A00399E38 /* JENTreeView.m */; };
 		BD8BC5BE18DF5C3D00399E38 /* JENNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5BD18DF5C3D00399E38 /* JENNode.m */; };
@@ -64,8 +63,6 @@
 		BD8BC59818DF58F500399E38 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BD8BC5AF18DF595A00399E38 /* JENDefaultNodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENDefaultNodeView.h; sourceTree = "<group>"; };
 		BD8BC5B018DF595A00399E38 /* JENDefaultNodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENDefaultNodeView.m; sourceTree = "<group>"; };
-		BD8BC5B118DF595A00399E38 /* JENDefaultDecorationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENDefaultDecorationView.h; sourceTree = "<group>"; };
-		BD8BC5B218DF595A00399E38 /* JENDefaultDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENDefaultDecorationView.m; sourceTree = "<group>"; };
 		BD8BC5B318DF595A00399E38 /* JENSubtreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENSubtreeView.h; sourceTree = "<group>"; };
 		BD8BC5B418DF595A00399E38 /* JENSubtreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENSubtreeView.m; sourceTree = "<group>"; };
 		BD8BC5B518DF595A00399E38 /* JENTreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENTreeView.h; sourceTree = "<group>"; };
@@ -104,8 +101,6 @@
 			children = (
 				BD8BC5AF18DF595A00399E38 /* JENDefaultNodeView.h */,
 				BD8BC5B018DF595A00399E38 /* JENDefaultNodeView.m */,
-				BD8BC5B118DF595A00399E38 /* JENDefaultDecorationView.h */,
-				BD8BC5B218DF595A00399E38 /* JENDefaultDecorationView.m */,
 			);
 			name = "Default Views";
 			sourceTree = "<group>";
@@ -288,7 +283,6 @@
 			files = (
 				BD8BC58718DF58F400399E38 /* JENAppDelegate.m in Sources */,
 				BD8BC5BA18DF595A00399E38 /* JENSubtreeView.m in Sources */,
-				BD8BC5B918DF595A00399E38 /* JENDefaultDecorationView.m in Sources */,
 				BD8BC59018DF58F400399E38 /* JENViewController.m in Sources */,
 				BD8BC5BB18DF595A00399E38 /* JENTreeView.m in Sources */,
 				BD8BC5B818DF595A00399E38 /* JENDefaultNodeView.m in Sources */,

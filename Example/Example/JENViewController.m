@@ -12,19 +12,11 @@
 #import "JENCustomNodeView.h"
 #import "JENCustomDecorationView.h"
 
-@interface JENViewController ()
-
-@property (nonatomic, strong) NSMutableArray *decorationViews;
-
-@end
-
 @implementation JENViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.decorationViews = [[NSMutableArray alloc] init];
-
     JENNode *leaf1 = [[JENNode alloc] init];
     leaf1.name = @"Anakin Skywalker";
     
@@ -48,9 +40,8 @@
     root.name = @"Ben Skywalker";
     root.children = [NSSet setWithObjects:leaf5, luke, nil];
 
+	self.treeView.rootNode                  = root;
     self.treeView.dataSource                = self;
-    self.treeView.rootNode                  = root;
-
     self.treeView.backgroundColor           = [UIColor colorWithRed:0.0f/255.0f
                                                               green:127.0f/255.0f
                                                                blue:159.0f/255.0f
@@ -61,7 +52,8 @@
     self.treeView.showSubviews              = self.showViews.isOn;
     self.treeView.showSubviewFrames         = self.showViewFrames.isOn;
 
-
+	[self.treeView reloadData];
+	
     [self.alignChildren addTarget:self
                            action:@selector(updateTreeviewProperies:)
                  forControlEvents:UIControlEventValueChanged];
@@ -71,39 +63,38 @@
                   forControlEvents:UIControlEventValueChanged];
     
     [self.decorationViewType addTarget:self
-                                action:@selector(updateTreeviewProperies:)
+                                action:@selector(reloadTreeView:)
                       forControlEvents:UIControlEventValueChanged];
     
     [self.decorationViewType addTarget:self
-                                action:@selector(updateTreeviewProperies:)
+                                action:@selector(reloadTreeView:)
                       forControlEvents:UIControlEventValueChanged];
     
     [self.showViews addTarget:self
-                       action:@selector(updateTreeviewProperies:)
+                       action:@selector(reloadTreeView:)
              forControlEvents:UIControlEventValueChanged];
     
     [self.showViewFrames addTarget:self
-                            action:@selector(updateTreeviewProperies:)
+                            action:@selector(reloadTreeView:)
                   forControlEvents:UIControlEventValueChanged];
 }
 
--(void)updateTreeviewProperies:(UISwitch *)sender {
-    self.treeView.alignChildren             = self.alignChildren.selectedSegmentIndex == 0;
-    self.treeView.invertedLayout            = self.invertedLayout.selectedSegmentIndex != 0;
-    self.treeView.showSubviews              = self.showViews.on;
-    self.treeView.showSubviewFrames         = self.showViewFrames.on;
-    
-    for(JENCustomDecorationView *decorationView in self.decorationViews) {
-        decorationView.ortogonalConnection  = self.decorationViewType.selectedSegmentIndex == 0;
-        decorationView.showView             = self.showViews.on;
-        decorationView.showViewFrame        = self.showViewFrames.on;
-    }
+-(void)updateTreeviewProperies:(UISwitch*)sender {
+    self.treeView.alignChildren		= self.alignChildren.selectedSegmentIndex == 0;
+    self.treeView.invertedLayout	= self.invertedLayout.selectedSegmentIndex != 0;
     
     [self.treeView layoutGraph];
 }
 
+-(void)reloadTreeView:(UISwitch*)sender {
+    self.treeView.showSubviews		= self.showViews.on;
+    self.treeView.showSubviewFrames	= self.showViewFrames.on;
+    
+    [self.treeView reloadData];
+}
+
 -(UIView*)treeView:(JENTreeView*)treeView
-nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode {
+    nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode {
     
     JENCustomNodeView* view = [[JENCustomNodeView alloc] init];
     view.name               = modelNode.name;
@@ -111,7 +102,6 @@ nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode {
                                               green:102.0f/255.0f
                                                blue:142.0f/255.0f
                                               alpha:1.0f];
-    
     return view;
 }
 
@@ -123,8 +113,6 @@ nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode {
     decorationView.ortogonalConnection  = self.decorationViewType.selectedSegmentIndex == 0;
     decorationView.showView             = self.showViews.on;
     decorationView.showViewFrame        = self.showViewFrames.on;
-    
-    [self.decorationViews addObject:decorationView];
     
     return decorationView;
 }

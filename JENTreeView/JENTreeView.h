@@ -11,8 +11,9 @@
 
 @class JENTreeView;
 
-@protocol JENTreeViewDataSource
+@protocol JENTreeViewDataSource <NSObject>
 
+@optional
 -(UIView*)treeView:(JENTreeView*)treeView
     nodeViewForModelNode:(id<JENTreeViewModelNode>)modelNode;
 
