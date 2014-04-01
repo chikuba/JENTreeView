@@ -55,11 +55,11 @@
 	[self.treeView reloadData];
 	
     [self.alignChildren addTarget:self
-                           action:@selector(updateTreeviewProperies:)
+                           action:@selector(layoutTreeview:)
                  forControlEvents:UIControlEventValueChanged];
     
     [self.invertedLayout addTarget:self
-                            action:@selector(updateTreeviewProperies:)
+                            action:@selector(layoutTreeview:)
                   forControlEvents:UIControlEventValueChanged];
     
     [self.decorationViewType addTarget:self
@@ -79,7 +79,7 @@
                   forControlEvents:UIControlEventValueChanged];
 }
 
--(void)updateTreeviewProperies:(UISwitch*)sender {
+-(void)layoutTreeview:(UISwitch*)sender {
     self.treeView.alignChildren		= self.alignChildren.selectedSegmentIndex == 0;
     self.treeView.invertedLayout	= self.invertedLayout.selectedSegmentIndex != 0;
     
