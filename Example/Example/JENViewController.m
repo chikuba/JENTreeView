@@ -49,8 +49,8 @@
 
     self.treeView.alignChildren             = self.alignChildren.selectedSegmentIndex == 0;
     self.treeView.invertedLayout            = self.invertedLayout.selectedSegmentIndex != 0;
-    self.treeView.showSubviews              = self.showViews.isOn;
-    self.treeView.showSubviewFrames         = self.showViewFrames.isOn;
+    self.treeView.showSubviews              = self.showViews.on;
+    self.treeView.showSubviewFrames         = self.showViewFrames.on;
 
 	[self.treeView reloadData];
 	
