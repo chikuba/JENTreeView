@@ -19,24 +19,11 @@
 		BD8BC58D18DF58F400399E38 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD8BC58B18DF58F400399E38 /* Main_iPad.storyboard */; };
 		BD8BC59018DF58F400399E38 /* JENViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC58F18DF58F400399E38 /* JENViewController.m */; };
 		BD8BC59218DF58F400399E38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD8BC59118DF58F400399E38 /* Images.xcassets */; };
-		BD8BC59918DF58F500399E38 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC59818DF58F500399E38 /* XCTest.framework */; };
-		BD8BC59A18DF58F500399E38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC57618DF58F400399E38 /* Foundation.framework */; };
-		BD8BC59B18DF58F500399E38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8BC57A18DF58F400399E38 /* UIKit.framework */; };
 		BD8BC5B818DF595A00399E38 /* JENDefaultNodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B018DF595A00399E38 /* JENDefaultNodeView.m */; };
 		BD8BC5BA18DF595A00399E38 /* JENSubtreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B418DF595A00399E38 /* JENSubtreeView.m */; };
 		BD8BC5BB18DF595A00399E38 /* JENTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5B618DF595A00399E38 /* JENTreeView.m */; };
 		BD8BC5BE18DF5C3D00399E38 /* JENNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8BC5BD18DF5C3D00399E38 /* JENNode.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		BD8BC59C18DF58F500399E38 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BD8BC56B18DF58F400399E38 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BD8BC57218DF58F400399E38;
-			remoteInfo = Example;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BD552A1518E9C7940061B53A /* JENCustomNodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENCustomNodeView.h; sourceTree = "<group>"; };
@@ -59,7 +46,6 @@
 		BD8BC58E18DF58F400399E38 /* JENViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JENViewController.h; sourceTree = "<group>"; };
 		BD8BC58F18DF58F400399E38 /* JENViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JENViewController.m; sourceTree = "<group>"; };
 		BD8BC59118DF58F400399E38 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BD8BC59718DF58F500399E38 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8BC59818DF58F500399E38 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BD8BC5AF18DF595A00399E38 /* JENDefaultNodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JENDefaultNodeView.h; sourceTree = "<group>"; };
 		BD8BC5B018DF595A00399E38 /* JENDefaultNodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JENDefaultNodeView.m; sourceTree = "<group>"; };
@@ -80,16 +66,6 @@
 				BD8BC57918DF58F400399E38 /* CoreGraphics.framework in Frameworks */,
 				BD8BC57B18DF58F400399E38 /* UIKit.framework in Frameworks */,
 				BD8BC57718DF58F400399E38 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD8BC59418DF58F500399E38 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD8BC59918DF58F500399E38 /* XCTest.framework in Frameworks */,
-				BD8BC59B18DF58F500399E38 /* UIKit.framework in Frameworks */,
-				BD8BC59A18DF58F500399E38 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				BD8BC57318DF58F400399E38 /* Example.app */,
-				BD8BC59718DF58F500399E38 /* ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,24 +178,6 @@
 			productReference = BD8BC57318DF58F400399E38 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BD8BC59618DF58F500399E38 /* ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BD8BC5AB18DF58F500399E38 /* Build configuration list for PBXNativeTarget "ExampleTests" */;
-			buildPhases = (
-				BD8BC59318DF58F500399E38 /* Sources */,
-				BD8BC59418DF58F500399E38 /* Frameworks */,
-				BD8BC59518DF58F500399E38 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BD8BC59D18DF58F500399E38 /* PBXTargetDependency */,
-			);
-			name = ExampleTests;
-			productName = ExampleTests;
-			productReference = BD8BC59718DF58F500399E38 /* ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -230,11 +187,6 @@
 				CLASSPREFIX = JEN;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jennifer Nordwall";
-				TargetAttributes = {
-					BD8BC59618DF58F500399E38 = {
-						TestTargetID = BD8BC57218DF58F400399E38;
-					};
-				};
 			};
 			buildConfigurationList = BD8BC56E18DF58F400399E38 /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -250,7 +202,6 @@
 			projectRoot = "";
 			targets = (
 				BD8BC57218DF58F400399E38 /* Example */,
-				BD8BC59618DF58F500399E38 /* ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -264,13 +215,6 @@
 				BD8BC59218DF58F400399E38 /* Images.xcassets in Resources */,
 				BD8BC58A18DF58F400399E38 /* Main_iPhone.storyboard in Resources */,
 				BD8BC58118DF58F400399E38 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD8BC59518DF58F500399E38 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,22 +237,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD8BC59318DF58F500399E38 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BD8BC59D18DF58F500399E38 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BD8BC57218DF58F400399E38 /* Example */;
-			targetProxy = BD8BC59C18DF58F500399E38 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BD8BC57F18DF58F400399E38 /* InfoPlist.strings */ = {
@@ -438,48 +367,6 @@
 			};
 			name = Release;
 		};
-		BD8BC5AC18DF58F500399E38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		BD8BC5AD18DF58F500399E38 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
-				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -497,15 +384,6 @@
 			buildConfigurations = (
 				BD8BC5A918DF58F500399E38 /* Debug */,
 				BD8BC5AA18DF58F500399E38 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BD8BC5AB18DF58F500399E38 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD8BC5AC18DF58F500399E38 /* Debug */,
-				BD8BC5AD18DF58F500399E38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

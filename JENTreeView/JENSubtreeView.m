@@ -23,7 +23,7 @@
     self = [super initWithFrame:CGRectMake(10, 10, 100, 25)];
     
     if(self) {
-        self.autoresizesSubviews    = FALSE;
+        self.autoresizesSubviews    = NO;
         self.parentChildSpacing     = 40.0;
         self.siblingSpacing         = 10.0;
         
@@ -105,7 +105,7 @@
     CGFloat minWidth                    = CGFLOAT_MAX;
     NSUInteger subtreeViewCount         = 0;
     CGSize nodeViewSize                 = self.nodeView.frame.size;
-    CGPoint subtreeOrigion              = CGPointMake(0.0, 0.0);
+    CGPoint subtreeOrigin               = CGPointMake(0.0, 0.0);
     NSMutableDictionary *subViewSizes   = [[NSMutableDictionary alloc] init];
     
     // get max/minWidth of the subviews that we will use later on
@@ -129,20 +129,20 @@
             CGSize subtreeViewSize = [subViewSizes[@(subview.hash)] CGSizeValue];
             
             if(self.invertedLayout) {
-                subtreeOrigion.x = 0.0;
-            } else subtreeOrigion.x = nodeViewSize.width + self.parentChildSpacing;
+                subtreeOrigin.x = 0.0;
+            } else subtreeOrigin.x = nodeViewSize.width + self.parentChildSpacing;
 
             if((self.invertedLayout && !self.alignChildren) ||
                (!self.invertedLayout && self.alignChildren)) {
-                subtreeOrigion.x += (maxWidth - subtreeViewSize.width);
+                subtreeOrigin.x += (maxWidth - subtreeViewSize.width);
             }
 
             CGRect frame    = subview.frame;
-            frame.origin    = subtreeOrigion;
+            frame.origin    = subtreeOrigin;
             subview.frame   = frame;
             
             // for next run
-            subtreeOrigion.y += subtreeViewSize.height + self.siblingSpacing;
+            subtreeOrigin.y += subtreeViewSize.height + self.siblingSpacing;
         }
     }
     
@@ -152,7 +152,7 @@
     if(subtreeViewCount > 0) {
         // *** NODE VIEW *** //
         selfTargetSize  = CGSizeMake(nodeViewSize.width + self.parentChildSpacing + maxWidth,
-                                     MAX(subtreeOrigion.y - self.siblingSpacing,
+                                     MAX(subtreeOrigin.y - self.siblingSpacing,
                                          nodeViewSize.height));
     
         CGRect frame    = self.frame;
@@ -183,7 +183,7 @@
 													 selfTargetSize.height);
 			self.decorationsView.frame  = decorationsViewFrame;
 			
-			self.decorationsView.hidden                 = false;
+			self.decorationsView.hidden                 = NO;
 			self.decorationsView.parentChildSpacing     = self.parentChildSpacing;
 			self.decorationsView.invertedLayout         = self.invertedLayout;
 			
