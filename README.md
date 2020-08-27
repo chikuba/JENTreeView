@@ -76,12 +76,12 @@ And when you update something visual like the child-parent-spacing, call:
 
     [treeView layoutGraph];
     
-#Example
+# Example
 
 ![An example](Example/example1.png "Example")
 ![An example](Example/example_debug1.png "Example")
 
-#ToDo's
+# ToDo's
 * Make it easier to create your own customized Node views that can have a dynamic size. 
 * Make it easier to create your own customized deocration views. 
 * Fix the Example so that it work for iPad etc. 
