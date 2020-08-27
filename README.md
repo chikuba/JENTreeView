@@ -2,9 +2,9 @@ JENTreeView
 ===========
 This is a simple treeview that creates and layout a treeview recursivly. 
 
-#Usage
+# Usage
 
-##Node Tree
+## Node Tree
 Create a Node class that uses the JENTreeViewModelNode protocol: 
 
     @interface Node : NSObject<JENTreeViewModelNode>
@@ -25,7 +25,7 @@ Then build your tree of these objects like this:
     root.name = @"Root label";
     root.children = [NSSet setWithObjects:leaf1, leaf2, nil];
 
-##Tree View
+## Tree View
 Create a treeView as you usally create a UIScrollView. 
 
     JENTreeView *treeView = [[JENTreeView alloc] init...];
@@ -44,7 +44,7 @@ Then change the following properites as you like:
     BOOL showSubviews; // If you want a white tint on the subviews 
     BOOL showSubviewFrames; // If you want a black frame around the subviews
     
-##Customization
+## Customization
 
 If you want to create your own views, please set the dataSource:
 
@@ -66,7 +66,7 @@ The DecorationView should follow the following protocol:
         @property (nonatomic, assign) CGFloat parentChildSpacing;
     @end
     
-##Updating data
+## Updating data
 
 When you add something to your nodeTree, please call the following method afterwards:
 
